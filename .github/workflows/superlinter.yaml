@@ -1,0 +1,17 @@
+name: superlinter
+
+on: push
+
+jobs:
+  super-lint:
+    name: ling
+    runes-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: run
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
